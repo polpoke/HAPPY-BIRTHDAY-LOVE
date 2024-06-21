@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100&amp;family=Spartan:wght@800&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100&family=Spartan:wght@800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -17,9 +18,38 @@
 
     <style>
       body {
+        font-family: "Spartan", sans-serif;
+      }
+
+      .birthday-input-page,
+      .greeting-page {
+        display: none;
+      }
+
+      .birthday-input-page {
+        display: block;
+        background-color: white;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .birthday-input-page input {
+        font-size: 20px;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      .birthday-input-page button {
+        font-size: 20px;
+        padding: 10px 20px;
+      }
+
+      .greeting-page {
         background-image: url("Asset/ea130a0f92fb9af2513207e10395841a.jpg");
         background-size: contain;
-        font-family: "Spartan", sans-serif;
       }
 
       h1 {
@@ -49,10 +79,12 @@
         font-size: 30pt;
         color: rgb(55, 250, 159);
       }
+
       .center {
         text-align: center;
         color: rgb(136, 57, 189);
       }
+
       div.menu {
         background-color: rgba(220, 220, 220, 0.637);
         margin: 90px;
@@ -70,13 +102,7 @@
         width: 400px;
         height: 250px;
         padding: 10px;
-        /* opacity: 0.5; */
       }
-
-      /* bonus */
-      /* img:hover {
-            opacity: 1;
-        } */
 
       td,
       th {
@@ -92,55 +118,73 @@
     </style>
   </head>
   <body>
-    <section class="center">
-      <h1>
-        HAPPY LEVEL UP <br />
-        PRINCESS !!!
-      </h1>
-      <h5>18.06.01</h5>
-      <img
-        class="cover"
-        src="Asset/WhatsApp Image 2024-06-20 at 17.57.40.jpeg"
-        alt=""
-      />
-      <p class="center cover">
-        I Wish You All the Happiness <br />
-        In The World & More
-      </p>
-    </section>
+    <div class="birthday-input-page" id="birthday-input-page">
+      <h2>Input Your Birthday</h2>
+      <input type="date" id="birthday" />
+      <button onclick="showGreetingPage()">Submit</button>
+    </div>
 
-    <section class="center">
-      <div class="menu">
-        <h3>I LOVE YOU <i class="fas fa-heart"></i></h3>
-        <div class="item">
-          <div>
-            <img
-              class="menu"
-              src="Asset/WhatsApp Image 2024-06-20 at 18.18.69.jpeg"
-              alt=""
-            />
-            <h4>My Sweety</h4>
-          </div>
-          <div>
-            <img
-              class="menu"
-              src="Asset/WhatsApp Image 2024-06-20 at 18.18.43.jpeg"
-              alt=""
-            />
-            <h4>My Pretty</h4>
-          </div>
-          <div>
-            <img
-              class="menu"
-              src="Asset/WhatsApp Image 2024-06-20 at 18.18.44.jpeg"
-              alt=""
-            />
-            <h4>My Cutie</h4>
+    <div class="greeting-page" id="greeting-page">
+      <section class="center">
+        <h1>
+          HAPPY LEVEL UP <br />
+          PRINCESS !!!
+        </h1>
+        <h5>18.06.01</h5>
+        <img
+          class="cover"
+          src="Asset/WhatsApp Image 2024-06-20 at 17.57.40.jpeg"
+          alt=""
+        />
+        <p class="center cover">
+          I Wish You All the Happiness <br />
+          In The World & More
+        </p>
+      </section>
+
+      <section class="center">
+        <div class="menu">
+          <h3>I LOVE YOU <i class="fas fa-heart"></i></h3>
+          <div class="item">
+            <div>
+              <img
+                class="menu"
+                src="Asset/WhatsApp Image 2024-06-20 at 18.18.69.jpeg"
+                alt=""
+              />
+              <h4>My Sweety</h4>
+            </div>
+            <div>
+              <img
+                class="menu"
+                src="Asset/WhatsApp Image 2024-06-20 at 18.18.43.jpeg"
+                alt=""
+              />
+              <h4>My Pretty</h4>
+            </div>
+            <div>
+              <img
+                class="menu"
+                src="Asset/WhatsApp Image 2024-06-20 at 18.18.44.jpeg"
+                alt=""
+              />
+              <h4>My Cutie</h4>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
-    <div></div>
+    <script>
+      function showGreetingPage() {
+        const birthday = document.getElementById("birthday").value;
+        if (birthday) {
+          document.getElementById("birthday-input-page").style.display = "none";
+          document.getElementById("greeting-page").style.display = "block";
+        } else {
+          alert("Please enter your birthday!");
+        }
+      }
+    </script>
   </body>
 </html>
